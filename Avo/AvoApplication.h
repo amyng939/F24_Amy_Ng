@@ -1,8 +1,10 @@
 #pragma once
 
+#include "AvoUtilities.h"
+
 namespace Avo
 {
-	class AvoApplication
+	class AVO_API AvoApplication
 	{
 	public:
 		void Run();
