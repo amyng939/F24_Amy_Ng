@@ -5,7 +5,7 @@ class MyGameApplication : public Avo::AvoApplication
 {
 	virtual void Initialize() override
 	{
-		std::cout << "Starting..." << std::endl;
+		AVO_ERROR("Starting...");
 	}
 
 	virtual void Update() override

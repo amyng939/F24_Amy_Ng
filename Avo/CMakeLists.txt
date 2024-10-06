@@ -7,8 +7,18 @@ set(SOURCE_FILES
 
 add_library(Avo STATIC ${SOURCE_FILES})
 
-target_compile_definitions(Avo PRIVATE AVO_LIB)
+target_compile_definitions(Avo 
+		PRIVATE 
+			AVO_LIB
+		PUBLIC
+			$<$<CONFIG:Debug>:AVO_DEBUG=2>
+			$<$<CONFIG:RelWithDebInfo>:AVO_DEBUG=1>			
+)
 
 if(MSVC)
 	target_compile_definitions(Avo PUBLIC AVO_MS_COMPILER)
 endif()
+
+target_precompile_headers(Avo PRIVATE pch.h)
+
+target_link_libraries(Avo glfw)
