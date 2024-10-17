@@ -15,12 +15,12 @@ namespace Avo
 
 	void WindowGLFW::Create(int width, int height, std::string windowName)
 	{
-		windowPtr = glfwCreateWindow(width, height, windowName.c_str(), NULL, NULL);
+		mWindowPtr = glfwCreateWindow(width, height, windowName.c_str(), NULL, NULL);
 	
-		if (!windowPtr)
+		if (!mWindowPtr)
 			AVO_ERROR("GLFW failed to create a window!!!");
 
-		glfwMakeContextCurrent(windowPtr);
+		glfwMakeContextCurrent(mWindowPtr);
 	}
 
 	int WindowGLFW::GetWidth() const
@@ -28,7 +28,7 @@ namespace Avo
 		int width{ 0 };
 		int height{ 0 };
 
-		glfwGetWindowSize(windowPtr, &width, &height);
+		glfwGetWindowSize(mWindowPtr, &width, &height);
 
 		return width;
 	}
@@ -38,9 +38,19 @@ namespace Avo
 		int width{ 0 };
 		int height{ 0 };
 
-		glfwGetWindowSize(windowPtr, &width, &height);
+		glfwGetWindowSize(mWindowPtr, &width, &height);
 
 		return height;
+	}
+
+	void WindowGLFW::SwapBuffers()
+	{
+		glfwSwapBuffers(mWindowPtr);
+	}
+
+	void WindowGLFW::PollEvents()
+	{
+		glfwPollEvents();
 	}
 
 }

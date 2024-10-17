@@ -15,6 +15,9 @@ namespace Avo
 		while (ShouldContinue)
 		{
 			Update();
+			
+			Avo::AvoWindow::GetWindow()->SwapBuffers();
+			Avo::AvoWindow::GetWindow()->PollEvents();
 		}
 
 		Shutdown();

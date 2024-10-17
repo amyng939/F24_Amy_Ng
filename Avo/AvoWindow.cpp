@@ -40,4 +40,14 @@ namespace Avo
 	{
 		return implementation->GetHeight();
 	}
+
+	void AvoWindow::SwapBuffers()
+	{
+		implementation->SwapBuffers();
+	}
+
+	void AvoWindow::PollEvents()
+	{
+		implementation->PollEvents();
+	}
 }
