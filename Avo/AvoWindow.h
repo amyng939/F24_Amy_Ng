@@ -9,13 +9,18 @@ namespace Avo
 	class AVO_API AvoWindow
 	{
 	public:
-		AvoWindow();
+		static void Init();
+		static std::unique_ptr<AvoWindow>& GetWindow();
 
 		void CreateWindow(int width, int height, std::string windowName);
 		int GetWidth() const;
 		int GetHeight() const;
 
 	private:
-		WindowImpl* implementation{nullptr};
+		std::unique_ptr<WindowImpl> implementation{nullptr};
+
+		AvoWindow();
+
+		inline static std::unique_ptr<AvoWindow> instance;
 	};
 }

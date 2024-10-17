@@ -7,8 +7,6 @@ class MyGameApplication : public Avo::AvoApplication
 	{
 		AVO_ERROR("Starting...");
 
-		Avo::AvoWindow win;
-		win.CreateWindow(800, 600, "test");
 	}
 
 	virtual void Update() override

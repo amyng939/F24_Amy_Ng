@@ -9,10 +9,21 @@ namespace Avo
 	{
 		// create an implementation object and point "implementation" pointer to it
 #ifdef AVO_GLFW
-		implementation = new WindowGLFW;
+		implementation = std::unique_ptr<WindowImpl>{ new WindowGLFW };
 #else
 		#window_implementation_isnt_chosen
 #endif
+	}
+
+	void AvoWindow::Init()
+	{
+		if(instance==nullptr)
+			instance = std::unique_ptr<AvoWindow>{ new AvoWindow };
+	}
+
+	std::unique_ptr<AvoWindow>& AvoWindow::GetWindow()
+	{
+		return instance;
 	}
 
 	void AvoWindow::CreateWindow(int width, int height, std::string windowName)
