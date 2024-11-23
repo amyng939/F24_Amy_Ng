@@ -41,3 +41,12 @@ namespace Avo
 	}
 
 }
+
+
+/*
+
+Avo::Image pic("Assets/image1.png");
+Avo::Renderer::Get()->Draw(pic, 100,200);
+
+
+*/
