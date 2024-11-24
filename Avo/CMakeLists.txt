@@ -12,7 +12,8 @@ target_compile_definitions(Avo
 			AVO_LIB
 		PUBLIC
 			$<$<CONFIG:Debug>:AVO_DEBUG=2>
-			$<$<CONFIG:RelWithDebInfo>:AVO_DEBUG=1>			
+			$<$<CONFIG:RelWithDebInfo>:AVO_DEBUG=1>
+			AVO_OPENGL_STBI		
 )
 
 if(MSVC)

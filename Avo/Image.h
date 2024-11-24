@@ -2,6 +2,7 @@
 
 #include "pch.h"
 #include "AvoUtilities.h"
+#include "ImageImpl.h"
 
 namespace Avo
 {
