@@ -1,6 +1,7 @@
 #include "pch.h"
 
 #include "Shaders.h"
+#include "codeOpenGL/OpenGLShaders.h"
 
 namespace Avo
 {
@@ -34,27 +35,11 @@ namespace Avo
 
 	void Shaders::SetIntUniform(const std::string& uniformName, const std::vector<int>& values)
 	{
-		implementation->SetUniform(uniformName, values);
+		implementation->SetIntUniform(uniformName, values);
 	}
 
-
-	std::string Shaders::ReadFile(const std::string fileName) const
+	void Shaders::SetIntUniform(const std::string& uniformName, int value)
 	{
-		std::ifstream input{ fileName };
-
-		assert(input);
-
-		std::string result;
-		std::string line;
-
-		while (input)
-		{
-			getline(input, line);
-			result += line;
-			result += "\n";
-		}
-
-		input.close();
-		return result;
+		implementation->SetIntUniform(uniformName, value);
 	}
 }

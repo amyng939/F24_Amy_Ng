@@ -102,7 +102,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);AVO_LIB;AVO_MS_COMPILER;AVO_DEBUG=2;AVO_GLFW</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);AVO_LIB;AVO_MS_COMPILER;AVO_DEBUG=2;AVO_GLFW;AVO_OPENGL_STBI</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -120,7 +120,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);AVO_LIB;AVO_MS_COMPILER;AVO_GLFW</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);AVO_LIB;AVO_MS_COMPILER;AVO_GLFW;AVO_OPENGL_STBI</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -138,19 +138,29 @@
     <ClInclude Include="AvoUtilities.h" />
     <ClInclude Include="AvoWindow.h" />
     <ClInclude Include="codeGLFW\WindowGLFW.h" />
+    <ClInclude Include="codeOpenGL\OpenGLImage.h" />
+    <ClInclude Include="codeOpenGL\OpenGLShaders.h" />
     <ClInclude Include="EntryPoint.h" />
+    <ClInclude Include="Image.h" />
+    <ClInclude Include="ImageImpl.h" />
     <ClInclude Include="include\Avo.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Shaders.h" />
+    <ClInclude Include="ShadersImpl.h" />
     <ClInclude Include="WindowImpl.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AvoApplication.cpp" />
     <ClCompile Include="AvoWindow.cpp" />
     <ClCompile Include="codeGLFW\WindowGLFW.cpp" />
+    <ClCompile Include="codeOpenGL\OpenGLImage.cpp" />
+    <ClCompile Include="codeOpenGL\OpenGLShaders.cpp" />
+    <ClCompile Include="Image.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Shaders.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\glad\glad.vcxproj">

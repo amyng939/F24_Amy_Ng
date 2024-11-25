@@ -2,6 +2,7 @@
 
 #include "pch.h"
 #include "AvoUtilities.h"
+#include "ShadersImpl.h"
 
 namespace Avo
 {
@@ -14,10 +15,9 @@ namespace Avo
 	
 		void Bind();
 		void SetIntUniform(const std::string& uniformName, const std::vector<int>& values);
+		void SetIntUniform(const std::string& uniformName, int value);
 
 	private:
 		std::unique_ptr<ShadersImpl> implementation;
-
-		std::string ReadFile(const std::string fileName) const;
 	};
 }
