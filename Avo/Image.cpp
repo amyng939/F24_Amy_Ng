@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Image.h"
+#include "codeOpenGL/OpenGLImage.h"
 
 namespace Avo
 {
@@ -16,7 +17,7 @@ namespace Avo
 	Image::Image(const std::string& filePath)
 	{
 #ifdef AVO_OPENGL_STBI
-		implementation->std::unique_ptr<ImageImpl>{ new OpenGLImage(filePath) };
+		implementation = std::unique_ptr<ImageImpl>{ new OpenGLImage(filePath) };
 #else
 		#only_opengl_is_supported_so_far
 #endif

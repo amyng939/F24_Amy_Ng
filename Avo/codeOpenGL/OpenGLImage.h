@@ -17,6 +17,8 @@ namespace Avo
 
 		virtual void Bind() override;
 
+		~OpenGLImage();
+
 	private:
 		unsigned mImage{ 0 };
 		int mHeight{ 0 };

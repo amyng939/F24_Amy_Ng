@@ -17,9 +17,9 @@ namespace Avo
 		int GetWidth() const;
 		int GetHeight() const;
 
-	private:
 		void Bind();
 
+	private:
 		std::unique_ptr<ImageImpl> implementation;
 
 		friend class Renderer;

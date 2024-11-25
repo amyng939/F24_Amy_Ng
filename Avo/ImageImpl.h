@@ -14,5 +14,7 @@ namespace Avo
 		virtual int GetHeight() const = 0;
 
 		virtual void Bind() = 0;
+
+		virtual ~ImageImpl() {};
 	};
 }

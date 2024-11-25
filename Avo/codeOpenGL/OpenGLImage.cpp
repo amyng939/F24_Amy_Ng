@@ -86,4 +86,9 @@ namespace Avo
 	{
 		glBindTexture(GL_TEXTURE_2D, mImage);
 	}
+
+	OpenGLImage::~OpenGLImage()
+	{
+		glDeleteTextures(1, &mImage);
+	}
 }
