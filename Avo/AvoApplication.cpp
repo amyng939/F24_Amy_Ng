@@ -70,7 +70,7 @@ namespace Avo
 
 		//// Texture /////
 
-		Avo::Image pic{ "../AvoAssets/Images/Slowpoke.png" };
+		Avo::Image pic{ "../Avo/AvoAssets/Images/Slowpoke.png" };
 
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
