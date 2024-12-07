@@ -41,6 +41,18 @@ namespace Avo
 		return implementation->GetHeight();
 	}
 
+
+	void AvoWindow::SetKeyEventHandler(const std::function<void(const KeyEvent&)>& newHandler)
+	{
+		implementation->SetKeyEventHandler(newHandler);
+	}
+
+	void AvoWindow::SetWindowEventHandler(std::function<void(const WindowEvent&)> newHandler)
+	{
+		implementation->SetWindowEventHandler(newHandler);
+	}
+
+
 	void AvoWindow::SwapBuffers()
 	{
 		implementation->SwapBuffers();

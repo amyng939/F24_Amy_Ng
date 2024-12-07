@@ -64,6 +64,17 @@ namespace Avo
 	{
 	}
 
+
+	void AvoApplication::SetKeyEventHandler(const std::function<void(const KeyEvent&)>& newHandler)
+	{
+		Avo::AvoWindow::GetWindow()->SetKeyEventHandler(newHandler);
+	}
+
+	void AvoApplication::SetWindowEventHandler(std::function<void(const WindowEvent&)> newHandler)
+	{
+		Avo::AvoWindow::GetWindow()->SetWindowEventHandler(newHandler);
+	}
+
 }
 
 

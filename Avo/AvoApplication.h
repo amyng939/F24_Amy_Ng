@@ -2,6 +2,7 @@
 
 #include "pch.h"
 #include "AvoUtilities.h"
+#include "AvoEvents.h"
 
 constexpr int FPS_RATE{ 60 };
 
@@ -14,6 +15,9 @@ namespace Avo
 		virtual void Initialize();
 		virtual void Update();
 		virtual void Shutdown();
+
+		void SetKeyEventHandler(const std::function<void(const KeyEvent&)>& newHandler);
+		void SetWindowEventHandler(std::function<void(const WindowEvent&)> newHandler);
 
 	private:
 		bool mShouldContinue{ true };

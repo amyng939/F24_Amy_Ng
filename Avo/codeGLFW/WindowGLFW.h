@@ -4,6 +4,9 @@
 #define GLFW_INCLUDE_NONE
 #include "GLFW/glfw3.h"
 
+#include "pch.h"
+#include "AvoEvents.h"
+
 namespace Avo
 {
 	class WindowGLFW : public WindowImpl
@@ -15,10 +18,19 @@ namespace Avo
 		virtual int GetWidth() const override;
 		virtual int GetHeight() const override;
 
+		virtual void SetKeyEventHandler(const std::function<void(const KeyEvent&)>& newHandler) override;
+		virtual void SetWindowEventHandler(std::function<void(const WindowEvent&)> newHandler) override;
+
 		virtual void SwapBuffers() override;
 		virtual void PollEvents() override;
 
 	private:
 		GLFWwindow* mWindowPtr{nullptr};
+
+		struct Callbacks
+		{
+			std::function<void(const KeyEvent&)> KeyEventHandler;
+			std::function<void(const WindowEvent&)> WindowEventHandler;
+		} mCallbacks;
 	};
 }

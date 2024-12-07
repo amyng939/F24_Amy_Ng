@@ -21,6 +21,13 @@ namespace Avo
 			AVO_ERROR("GLFW failed to create a window!!!");
 
 		glfwMakeContextCurrent(mWindowPtr);
+
+		glfwSetKeyCallback(mWindowPtr, 
+			[](GLFWwindow* window, int key, int scancode, int action, int mods) 
+			{
+				KeyEvent event{ key, KeyEvent::KeyAction::Press };
+				mCallbacks.KeyEventHandler(event);
+			});
 	}
 
 	int WindowGLFW::GetWidth() const
@@ -41,6 +48,16 @@ namespace Avo
 		glfwGetWindowSize(mWindowPtr, &width, &height);
 
 		return height;
+	}
+
+	void WindowGLFW::SetKeyEventHandler(const std::function<void(const KeyEvent&)>& newHandler)
+	{
+		mCallbacks.KeyEventHandler = newHandler;
+	}
+
+	void WindowGLFW::SetWindowEventHandler(std::function<void(const WindowEvent&)> newHandler)
+	{
+		mCallbacks.WindowEventHandler = newHandler;
 	}
 
 	void WindowGLFW::SwapBuffers()
