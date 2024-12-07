@@ -4,6 +4,7 @@
 #include "AvoWindow.h"
 #include "Image.h"
 #include "Shaders.h"
+#include "Renderer.h"
 
 #define GLFW_INCLUDE_NONE
 #include "GLFW/glfw3.h"
@@ -18,74 +19,26 @@ namespace Avo
 		Avo::AvoWindow::Init();
 		Avo::AvoWindow::GetWindow()->CreateWindow(800, 600, "test");
 
-		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-		{
-			AVO_ERROR("Failed to initiate GLAD");
-		}
+		Renderer::Init();
 
 		Initialize();
 
-		//// Vertex code /////
-		
-		float vertices[] = {
-			100.0f, 100.0f, 0.0f, 0.0f,
-			100.0f, 300.0f, 0.0f, 1.0f,
-			300.0f, 300.0f, 1.0f, 1.0f,
-			300.0f, 100.0f, 1.0f, 0.0f
-		};
-
-		unsigned int indices[] = {
-			0, 1, 2, // first triangle
-			0, 2, 3  // second triangle
-		};
-
-		unsigned int VAO;
-		glGenVertexArrays(1, &VAO);
-		glBindVertexArray(VAO);
-
-		unsigned int VBO;
-		glGenBuffers(1, &VBO);
-		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-		glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
-		glEnableVertexAttribArray(0);
-
-		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2*sizeof(float)));
-		glEnableVertexAttribArray(1);
-
-		unsigned int EBO;
-		glGenBuffers(1, &EBO);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
-
-		//// Shaders /////
-
-		Avo::Shaders shaders{
-			"../Avo/AvoAssets/Shaders/defaultVertexShader.glsl",
-			"../Avo/AvoAssets/Shaders/defaultFragmentShader.glsl" };
-
-		shaders.SetIntUniform("ScreenDim", { 800, 600 });
-
-		//// Texture /////
-
 		Avo::Image pic{ "../Avo/AvoAssets/Images/Slowpoke.png" };
+		int x{ 100 };
 
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;
 
-		while (ShouldContinue)
+		while (mShouldContinue)
 		{
 			Update();
 
-			glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT);
+			Renderer::ClearScreen();
+				
+			Renderer::Draw(pic, x, 100);
+			x += 2;
 
-			shaders.Bind();
-			glBindVertexArray(VAO);
-			pic.Bind();
-			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+			std::this_thread::sleep_until(mNextFrameTime);			
+			mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;
 			
 			Avo::AvoWindow::GetWindow()->SwapBuffers();
 			Avo::AvoWindow::GetWindow()->PollEvents();

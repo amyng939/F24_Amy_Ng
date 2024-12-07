@@ -1,22 +1,22 @@
 
-if (NOT EXISTS "C:/Users/Ammeh/Desktop/Game Engines/Amy_Ng_Fall_24/glfw_build/install_manifest.txt")
-    message(FATAL_ERROR "Cannot find install manifest: \"C:/Users/Ammeh/Desktop/Game Engines/Amy_Ng_Fall_24/glfw_build/install_manifest.txt\"")
+if (NOT EXISTS "C:/Users/Emu/source/repos/F24_Amy_Ng/glfw_build/install_manifest.txt")
+    message(FATAL_ERROR "Cannot find install manifest: \"C:/Users/Emu/source/repos/F24_Amy_Ng/glfw_build/install_manifest.txt\"")
 endif()
 
-file(READ "C:/Users/Ammeh/Desktop/Game Engines/Amy_Ng_Fall_24/glfw_build/install_manifest.txt" files)
+file(READ "C:/Users/Emu/source/repos/F24_Amy_Ng/glfw_build/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 
 foreach (file ${files})
   message(STATUS "Uninstalling \"$ENV{DESTDIR}${file}\"")
   if (EXISTS "$ENV{DESTDIR}${file}")
-    exec_program("C:/CMake/cmake-3.30.3-windows-x86_64/bin/cmake.exe" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
+    exec_program("C:/Program Files/CMake/bin/cmake.exe" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
                  OUTPUT_VARIABLE rm_out
                  RETURN_VALUE rm_retval)
     if (NOT "${rm_retval}" STREQUAL 0)
       MESSAGE(FATAL_ERROR "Problem when removing \"$ENV{DESTDIR}${file}\"")
     endif()
   elseif (IS_SYMLINK "$ENV{DESTDIR}${file}")
-    EXEC_PROGRAM("C:/CMake/cmake-3.30.3-windows-x86_64/bin/cmake.exe" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
+    EXEC_PROGRAM("C:/Program Files/CMake/bin/cmake.exe" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
                  OUTPUT_VARIABLE rm_out
                  RETURN_VALUE rm_retval)
     if (NOT "${rm_retval}" STREQUAL 0)

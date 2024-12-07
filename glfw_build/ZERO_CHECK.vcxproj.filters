@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Ammeh\Desktop\Game Engines\Amy_Ng_Fall_24\glfw_build\CMakeFiles\ab9c29946ea7854bc4028a351c498526\generate.stamp.rule">
+    <CustomBuild Include="C:\Users\Emu\source\repos\F24_Amy_Ng\glfw_build\CMakeFiles\967706c8072cdd3688345ab1e613ecfa\generate.stamp.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{F4A43237-0DB8-34DF-9F6A-10DE56639C3A}</UniqueIdentifier>
+      <UniqueIdentifier>{C04B52EA-EF39-32D0-9FD5-6FF12B7D8A6F}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

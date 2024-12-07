@@ -1,6 +1,9 @@
 #pragma once
 
+#include "pch.h"
 #include "AvoUtilities.h"
+
+constexpr int FPS_RATE{ 60 };
 
 namespace Avo
 {
@@ -13,6 +16,9 @@ namespace Avo
 		virtual void Shutdown();
 
 	private:
-		bool ShouldContinue{ true };
+		bool mShouldContinue{ true };
+
+		std::chrono::steady_clock::time_point mNextFrameTime;
+		std::chrono::milliseconds mFrameDuration{ std::chrono::milliseconds{1000} / FPS_RATE };
 	};
 }

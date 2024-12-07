@@ -1,4 +1,4 @@
-C:/Users/Ammeh/Desktop/Game Engines/Amy_Ng_Fall_24/glfw_build/CMakeFiles/ALL_BUILD.dir
-C:/Users/Ammeh/Desktop/Game Engines/Amy_Ng_Fall_24/glfw_build/CMakeFiles/ZERO_CHECK.dir
-C:/Users/Ammeh/Desktop/Game Engines/Amy_Ng_Fall_24/glfw_build/src/CMakeFiles/glfw.dir
-C:/Users/Ammeh/Desktop/Game Engines/Amy_Ng_Fall_24/glfw_build/src/CMakeFiles/update_mappings.dir
+C:/Users/Emu/source/repos/F24_Amy_Ng/glfw_build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Emu/source/repos/F24_Amy_Ng/glfw_build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/Emu/source/repos/F24_Amy_Ng/glfw_build/src/CMakeFiles/glfw.dir
+C:/Users/Emu/source/repos/F24_Amy_Ng/glfw_build/src/CMakeFiles/update_mappings.dir

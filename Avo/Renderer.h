@@ -4,6 +4,7 @@
 #include "AvoUtilities.h"
 #include "Image.h"
 #include "Shaders.h"
+#include "RendererImpl.h"
 
 namespace Avo
 {
@@ -14,6 +15,8 @@ namespace Avo
 
 		static void Draw(Image& pic, int xCoord, int yCoord);
 		static void Draw(Image& pic, int xCoord, int yCoord, Shaders shaders);
+
+		static void ClearScreen();
 
 	private:
 		Renderer();

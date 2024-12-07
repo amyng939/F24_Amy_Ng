@@ -1,12 +1,17 @@
 #include "pch.h"
 
 #include "Renderer.h"
+#include "codeOpenGL/OpenGLRenderer.h"
 
 namespace Avo
 {
 	Renderer::Renderer()
 	{
-
+#ifdef AVO_OPENGL_STBI
+		mImplementation = std::unique_ptr<RendererImpl>{ new OpenGLRenderer() };
+#else
+		#only_opengl_is_supported_so_far
+#endif
 	}
 
 	void Renderer::Init()
@@ -23,5 +28,11 @@ namespace Avo
 	void Renderer::Draw(Image& pic, int xCoord, int yCoord, Shaders shaders)
 	{
 		mInstance->mImplementation->Draw(pic, xCoord, yCoord);
+	}
+
+
+	void Renderer::ClearScreen()
+	{
+		mInstance->mImplementation->ClearScreen();
 	}
 }

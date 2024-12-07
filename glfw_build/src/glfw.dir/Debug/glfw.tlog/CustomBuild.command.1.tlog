@@ -1,6 +1,6 @@
-^C:\USERS\AMMEH\DESKTOP\GAME ENGINES\AMY_NG_FALL_24\GLFW\SRC\CMAKELISTS.TXT
+^C:\USERS\EMU\SOURCE\REPOS\F24_AMY_NG\GLFW\SRC\CMAKELISTS.TXT
 setlocal
-C:\CMake\cmake-3.30.3-windows-x86_64\bin\cmake.exe "-SC:/Users/Ammeh/Desktop/Game Engines/Amy_Ng_Fall_24/glfw" "-BC:/Users/Ammeh/Desktop/Game Engines/Amy_Ng_Fall_24/glfw_build" --check-stamp-file "C:/Users/Ammeh/Desktop/Game Engines/Amy_Ng_Fall_24/glfw_build/src/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Emu/source/repos/F24_Amy_Ng/glfw -BC:/Users/Emu/source/repos/F24_Amy_Ng/glfw_build --check-stamp-file C:/Users/Emu/source/repos/F24_Amy_Ng/glfw_build/src/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
