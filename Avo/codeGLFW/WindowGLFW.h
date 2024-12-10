@@ -29,8 +29,8 @@ namespace Avo
 
 		struct Callbacks
 		{
-			std::function<void(const KeyEvent&)> KeyEventHandler;
-			std::function<void(const WindowEvent&)> WindowEventHandler;
+			std::function<void(const KeyEvent&)> KeyEventHandler{ [](const KeyEvent&) {} };
+			std::function<void(const WindowEvent&)> WindowEventHandler{ [](const WindowEvent&) {} };
 		} mCallbacks;
 	};
 }

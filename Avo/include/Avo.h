@@ -6,3 +6,5 @@
 #include "../Image.h"
 #include "../Shaders.h"
 #include "../Renderer.h"
+#include "../AvoEvents.h"
+#include "../KeyCodes.h"

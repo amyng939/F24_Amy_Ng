@@ -135,6 +135,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AvoApplication.h" />
+    <ClInclude Include="AvoEvents.h" />
     <ClInclude Include="AvoUtilities.h" />
     <ClInclude Include="AvoWindow.h" />
     <ClInclude Include="codeGLFW\WindowGLFW.h" />
@@ -145,6 +146,7 @@
     <ClInclude Include="Image.h" />
     <ClInclude Include="ImageImpl.h" />
     <ClInclude Include="include\Avo.h" />
+    <ClInclude Include="KeyCodes.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="RendererImpl.h" />
@@ -154,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AvoApplication.cpp" />
+    <ClCompile Include="AvoEvents.cpp" />
     <ClCompile Include="AvoWindow.cpp" />
     <ClCompile Include="codeGLFW\WindowGLFW.cpp" />
     <ClCompile Include="codeOpenGL\OpenGLImage.cpp" />

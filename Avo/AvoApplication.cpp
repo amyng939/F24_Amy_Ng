@@ -21,6 +21,9 @@ namespace Avo
 
 		Renderer::Init();
 
+		SetWindowEventHandler(
+			[this](const WindowEvent& event) {DefaultWindowEventHandler(event); });
+
 		Initialize();
 
 		Avo::Image pic{ "../Avo/AvoAssets/Images/Slowpoke.png" };
@@ -73,6 +76,12 @@ namespace Avo
 	void AvoApplication::SetWindowEventHandler(std::function<void(const WindowEvent&)> newHandler)
 	{
 		Avo::AvoWindow::GetWindow()->SetWindowEventHandler(newHandler);
+	}
+
+	void AvoApplication::DefaultWindowEventHandler(const WindowEvent& event)
+	{
+		if (event.GetWindowAction() == WindowEvent::WindowAction::Close)
+			mShouldContinue = false;
 	}
 
 }

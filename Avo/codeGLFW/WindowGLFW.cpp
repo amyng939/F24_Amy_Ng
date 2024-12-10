@@ -22,11 +22,37 @@ namespace Avo
 
 		glfwMakeContextCurrent(mWindowPtr);
 
+		glfwSetWindowUserPointer(mWindowPtr, &mCallbacks);
 		glfwSetKeyCallback(mWindowPtr, 
 			[](GLFWwindow* window, int key, int scancode, int action, int mods) 
 			{
-				KeyEvent event{ key, KeyEvent::KeyAction::Press };
-				mCallbacks.KeyEventHandler(event);
+				if (action == GLFW_PRESS)
+				{
+					Callbacks* callbacks{ (Callbacks*) glfwGetWindowUserPointer(window) };
+
+					KeyEvent event{ key, KeyEvent::KeyAction::Press };
+					callbacks->KeyEventHandler(event);
+				}
+				else if (action == GLFW_RELEASE)
+				{
+					Callbacks* callbacks{ (Callbacks*) glfwGetWindowUserPointer(window) };
+
+					KeyEvent event{ key, KeyEvent::KeyAction::Release };
+					callbacks->KeyEventHandler(event);
+				}
+				else if (action == GLFW_REPEAT)
+				{
+					Callbacks* callbacks{ (Callbacks*) glfwGetWindowUserPointer(window) };
+
+					KeyEvent event{ key, KeyEvent::KeyAction::Repeat };
+					callbacks->KeyEventHandler(event);
+				}
+			});
+		glfwSetWindowCloseCallback(mWindowPtr, [](GLFWwindow* window) {
+				Callbacks* callbacks{ (Callbacks*) glfwGetWindowUserPointer(window) };
+
+				WindowEvent event{ WindowEvent::WindowAction::Close };
+				callbacks->WindowEventHandler(event);
 			});
 	}
 

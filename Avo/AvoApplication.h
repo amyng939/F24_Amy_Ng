@@ -19,6 +19,8 @@ namespace Avo
 		void SetKeyEventHandler(const std::function<void(const KeyEvent&)>& newHandler);
 		void SetWindowEventHandler(std::function<void(const WindowEvent&)> newHandler);
 
+		void DefaultWindowEventHandler(const WindowEvent& event);
+
 	private:
 		bool mShouldContinue{ true };
 

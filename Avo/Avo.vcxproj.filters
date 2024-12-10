@@ -66,6 +66,12 @@
     <ClInclude Include="codeOpenGL\OpenGLRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AvoEvents.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyCodes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AvoApplication.cpp">
@@ -96,6 +102,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="codeOpenGL\OpenGLRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AvoEvents.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
