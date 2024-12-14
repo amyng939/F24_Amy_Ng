@@ -11,6 +11,8 @@ namespace Avo
 	class AVO_API AvoApplication
 	{
 	public:
+		AvoApplication();
+
 		void Run();
 		virtual void Initialize();
 		virtual void Update();

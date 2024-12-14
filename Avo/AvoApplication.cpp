@@ -14,7 +14,7 @@
 
 namespace Avo
 {
-	void AvoApplication::Run()
+	AvoApplication::AvoApplication()
 	{
 		Avo::AvoWindow::Init();
 		Avo::AvoWindow::GetWindow()->CreateWindow(800, 600, "test");
@@ -24,22 +24,20 @@ namespace Avo
 		SetWindowEventHandler(
 			[this](const WindowEvent& event) {DefaultWindowEventHandler(event); });
 
-		Initialize();
+	}
 
-		Avo::Image pic{ "../Avo/AvoAssets/Images/Slowpoke.png" };
-		int x{ 100 };
+	void AvoApplication::Run()
+	{
+		Initialize();
 
 		mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;
 
 		while (mShouldContinue)
 		{
-			Update();
-
 			Renderer::ClearScreen();
-				
-			Renderer::Draw(pic, x, 100);
-			x += 2;
 
+			Update();
+				
 			std::this_thread::sleep_until(mNextFrameTime);			
 			mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;
 			
@@ -85,12 +83,3 @@ namespace Avo
 	}
 
 }
-
-
-/*
-
-Avo::Image pic("Assets/image1.png");
-Avo::Renderer::Get()->Draw(pic, 100,200);
-
-
-*/
