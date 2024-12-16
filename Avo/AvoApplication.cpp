@@ -17,7 +17,7 @@ namespace Avo
 	AvoApplication::AvoApplication()
 	{
 		Avo::AvoWindow::Init();
-		Avo::AvoWindow::GetWindow()->CreateWindow(800, 600, "test");
+		Avo::AvoWindow::GetWindow()->CreateWindow(1920, 1080, "test");
 
 		Renderer::Init();
 

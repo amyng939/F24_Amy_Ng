@@ -66,9 +66,9 @@ namespace Avo
 			(left_b <= left_a and left_a <= right_b) };
 
 		int bot_a{ a.mYCoord };
-		int top_a{ a.mYCoord + a.mImage.GetWidth() };
+		int top_a{ a.mYCoord + a.mImage.GetHeight() };
 		int bot_b{ b.mYCoord };
-		int top_b{ b.mYCoord + b.mImage.GetWidth() };
+		int top_b{ b.mYCoord + b.mImage.GetHeight() };
 
 		bool y_intersection{ (bot_a <= bot_b and bot_b <= top_a) or 
 			(bot_b <= bot_a and bot_a <= top_b) };
