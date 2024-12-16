@@ -63,6 +63,7 @@ namespace Avo
 
 	void AvoApplication::Shutdown()
 	{
+		mShouldContinue = false;
 	}
 
 
