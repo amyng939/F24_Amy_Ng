@@ -37,7 +37,7 @@ private:
 
 	Avo::Image background{ "../MyGame/Assets/background.png" };
 
-	Avo::Unit player{ "../MyGame/Assets/pink_square1.png", 
+	Avo::Unit player{ "../MyGame/Assets/slowbro.png", 
 		window_width / 2, window_height / 2 }; // start at near center of the screen
 
 	Avo::Unit projectile{ "../MyGame/Assets/horizontal_laser.png", 0, 500};

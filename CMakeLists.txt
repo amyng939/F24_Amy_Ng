@@ -16,4 +16,4 @@ add_subdirectory(MyGame)
 set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT MyGame)
 
 file(COPY Avo/AvoAssets DESTINATION ${CMAKE_BINARY_DIR}/Avo)
-file(COPY Avo/AvoAssets DESTINATION ${CMAKE_BINARY_DIR}/MyGame)
+file(COPY MyGame/Assets DESTINATION ${CMAKE_BINARY_DIR}/MyGame)
