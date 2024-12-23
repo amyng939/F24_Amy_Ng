@@ -16,7 +16,6 @@ private:
     int frames_passed = 0;
 
     Avo::Image background{ "../MyGame/Assets/background.png" };
-
     Avo::Unit player{ "../MyGame/Assets/slowbro.png",
         window_width / 2, window_height / 2 }; // start at near center of the screen
 
@@ -25,6 +24,5 @@ private:
     Counter counter;
 
     void SpawnProjectiles(int count);
-
     void MyKeysHandler(const Avo::KeyEvent& event);
 };
