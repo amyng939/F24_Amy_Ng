@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Avo.h"
 #include <vector>
 
@@ -16,6 +18,8 @@ private:
     int frames_passed = 0;
 
     Avo::Image background{ "../MyGame/Assets/background.png" };
+    Avo::Unit pokeball{ "../MyGame/Assets/pokeball.png", 0, 0, false };
+    std::string pokeball_filename = "../MyGame/Assets/pokeball.png";
     Avo::Unit player{ "../MyGame/Assets/slowbro.png",
         window_width / 2, window_height / 2 }; // start at near center of the screen
 

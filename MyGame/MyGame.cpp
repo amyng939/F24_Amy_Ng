@@ -57,8 +57,8 @@ void MyGameApplication::SpawnProjectiles(int count)
 {
     for (int i = 0; i < count; i++)
     {
-        int random_y = rand() % (window_height - 100 + 1); // 100 is the img height
-        projectiles.emplace_back("../MyGame/Assets/pokeball.png", 0, random_y);
+        int random_y = rand() % (window_height - pokeball.GetHeight() + 1);
+        projectiles.emplace_back(pokeball_filename, 0, random_y);
     }
 }
 

@@ -29,7 +29,7 @@ void Counter::DrawCounter()
 	}
 }
 
-int Counter::GetCount()
+int Counter::GetCount() const
 {
 	return count;
 }
