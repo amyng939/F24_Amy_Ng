@@ -28,3 +28,8 @@ void Counter::DrawCounter()
 			x = x - numbers[string_count[i - 1] - '0'].GetWidth() - 5;
 	}
 }
+
+int Counter::GetCount()
+{
+	return count;
+}

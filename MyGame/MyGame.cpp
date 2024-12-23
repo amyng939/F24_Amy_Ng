@@ -32,7 +32,7 @@ void MyGameApplication::Update()
         if (Avo::UnitsOverlap(player, proj))
         {
             Avo::AvoApplication::Shutdown();
-            std::cout << "Game Over! Close terminal and run game to play again." << std::endl;
+            std::cout << "Game Over! Your score was " << counter.GetCount() << ". Close terminal and run game to play again." << std::endl;
         }
 
         // reset projectile if it goes off-screen
@@ -72,26 +72,26 @@ void MyGameApplication::MyKeysHandler(const Avo::KeyEvent& event)
         case AVO_KEY_LEFT:
             if (player.GetXCoord() >= 20)
                 player.UpdateXCoord(-20);
-            else if (player.GetXCoord() >= 8) // since moving by 20 won't let player sit flush along the border
-                player.UpdateXCoord(-8);
+            else // when moving by 20 won't let player sit flush along the border, move by the remaining distance to the border
+                player.UpdateXCoord(0 - player.GetXCoord());
             break;
         case AVO_KEY_RIGHT:
-            if (player.GetXCoord() <= window_width - player.GetWidth() - 20)
+            if (window_width - (player.GetXCoord() + player.GetWidth()) >= 20)
                 player.UpdateXCoord(20);
-            else if (player.GetXCoord() <= window_width - player.GetWidth() - 8)
-                player.UpdateXCoord(8);
+            else
+                player.UpdateXCoord(window_width - (player.GetXCoord() + player.GetWidth()));
             break;
         case AVO_KEY_DOWN:
             if (player.GetYCoord() >= 20)
                 player.UpdateYCoord(-20);
-            else if (player.GetYCoord() >= 8)
-                player.UpdateYCoord(-8);
+            else
+                player.UpdateYCoord(0 - player.GetYCoord());
             break;
         case AVO_KEY_UP:
-            if (player.GetYCoord() <= window_height - player.GetHeight() - 20)
+            if (window_height - (player.GetYCoord() + player.GetHeight()) >= 20)
                 player.UpdateYCoord(20);
-            else if (player.GetYCoord() <= window_height - player.GetHeight() - 8)
-                player.UpdateYCoord(8);
+            else
+                player.UpdateYCoord(window_height - (player.GetYCoord() + player.GetHeight()));
             break;
         }
     }

@@ -10,6 +10,7 @@ public:
 
 	void AddPoint();
 	void DrawCounter();
+	int GetCount();
 
 private:
 	int count = 0;
