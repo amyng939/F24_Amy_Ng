@@ -1,4 +1,4 @@
-add_executable(MyGame MyGame.cpp Counter.h Counter.cpp)
+add_executable(MyGame Source.cpp MyGame.h MyGame.cpp Counter.h Counter.cpp)
 
 include_directories(../Avo/include)
 
