@@ -45,19 +45,21 @@ void MyGameApplication::Update()
 
     counter.DrawCounter();
 
+    // every 2 seconds another projectile is added to the projectiles vector to be spawned
+    frames_passed++;
+
     if (frames_passed == 120)
     {
         SpawnProjectiles(1);
         frames_passed = 0;
     }
-    frames_passed++;
 }
 
 void MyGameApplication::SpawnProjectiles(int count)
 {
     for (int i = 0; i < count; i++)
     {
-        int random_y = rand() % (window_height - pokeball.GetHeight() + 1);
+        int random_y = rand() % (window_height - pokeball.GetHeight() + 1); // so that pokeball doesn't display out of screen
         projectiles.emplace_back(pokeball_filename, 0, random_y);
     }
 }
